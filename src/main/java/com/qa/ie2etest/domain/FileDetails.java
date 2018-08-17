@@ -15,6 +15,7 @@ public class FileDetails {
 	private String mimeType;
 	private Long fizeSize;
 	private String fileExtension;
+	private VehicleDetails vehicleDetails;
 	
 	public FileDetails() {}
 	
@@ -56,6 +57,14 @@ public class FileDetails {
 	
 	public void setFileExtension(String fileExtension) {
 		this.fileExtension = fileExtension;
+	}
+
+	public VehicleDetails getVehicleDetails() {
+		return vehicleDetails;
+	}
+
+	public void setVehicleDetails(VehicleDetails vehicleDetails) {
+		this.vehicleDetails = vehicleDetails;
 	}
 
 	@Override
