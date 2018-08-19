@@ -1,15 +1,6 @@
 package com.qa.ie2etest.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class FileInfo {
-	
-	@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
-	private Long id;
 	
 	private String fileName;
 	private String mimeType;
@@ -17,14 +8,6 @@ public class FileInfo {
 	private String fileExtension;
 	
 	public FileInfo() {}
-	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
 	public String getFileName() {
 		return fileName;
@@ -60,7 +43,7 @@ public class FileInfo {
 
 	@Override
 	public String toString() {
-		return "FileDetails [id=" + id + ", fileName=" + fileName + ", mimeType=" + mimeType + ", fizeSize=" + fileSize
+		return "FileDetails [fileName=" + fileName + ", mimeType=" + mimeType + ", fizeSize=" + fileSize
 				+ ", fileExtension=" + fileExtension + "]";
 	}
 	

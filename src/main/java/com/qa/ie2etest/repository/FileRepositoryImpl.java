@@ -17,7 +17,6 @@ public class FileRepositoryImpl implements FileRepository {
 
 	private File directory; 
 	private List<File> getAllList;
-	private List<FileInfo> listOfFiles;
 	private FILEUtil fileUtil = new FILEUtil();
 	FileInfo fileInfo;
 	

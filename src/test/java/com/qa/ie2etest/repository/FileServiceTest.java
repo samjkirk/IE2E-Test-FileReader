@@ -18,27 +18,35 @@ public class FileServiceTest {
 	private File testFile;
 	private List<File> testList;
 	private FileInfo expectedGetInfo;	
+	
+	private static final String TEST_PATH = "C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files";
+	private static final String TEST_FILE = "\\SampleCSVFile_2kb.csv";
+	private static final String MIME_TYPE = "text/csv";
+	private static final String EXTENSION = "xls";
+	private static final int SIZE1 = 11;
+	private static final int SIZE2 = 7;
+	private static final int SIZE3 = 3;
 
 	@Before
 	public void setUp() {
 		fileService = new FileRepositoryImpl();
 		fileUtil = new FILEUtil();
-		testList = fileService.getFilesFromDirectory("C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files");
+		testList = fileService.getFilesFromDirectory(TEST_PATH);
 	}
 	
 	@Test
 	public void testGetAllFilesFromDirectory() {
-		Assert.assertEquals(11, fileService.getFilesFromDirectory("C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files").size());
+		Assert.assertEquals(SIZE1, fileService.getFilesFromDirectory(TEST_PATH).size());
 	}
 
 	@Test
 	public void testGetInfoFromFile() {
-		testFile = new File("C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files\\SampleCSVFile_2kb.csv");
+		testFile = new File(TEST_PATH + TEST_FILE);
 		
 		try {
 			expectedGetInfo = fileUtil.setFileInfo(testFile);
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 		
 		Assert.assertEquals(expectedGetInfo.getFileName(), fileService.getInfoFromFile(testFile).getFileName());
@@ -46,13 +54,13 @@ public class FileServiceTest {
 	
 	@Test
 	public void testGetFilesByMimeType() {
-		List<File> actualResultGetFilesByMimeType = fileService.getFilesByMimeType("text/csv");
-		Assert.assertEquals(7, actualResultGetFilesByMimeType.size());
+		List<File> actualResultGetFilesByMimeType = fileService.getFilesByMimeType(MIME_TYPE);
+		Assert.assertEquals(SIZE2, actualResultGetFilesByMimeType.size());
 	}
 	
 	@Test
 	public void testGetFilesByExtension() {
-		List<File> actualResultGetFilesByExtension = fileService.getFileByExtension("xls");
-		Assert.assertEquals(3, actualResultGetFilesByExtension.size());
+		List<File> actualResultGetFilesByExtension = fileService.getFileByExtension(EXTENSION);
+		Assert.assertEquals(SIZE3, actualResultGetFilesByExtension.size());
 	}
 }

@@ -1,15 +1,6 @@
 package com.qa.ie2etest.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class Vehicle {
-	
-	@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
-	private Long id;
 	
 	private String regNumber;
 	private String make;
@@ -43,7 +34,7 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return "VehicleDetails [regNumber=" + regNumber + ", make=" + make + ", colour=" + colour + "]";
+		return "VehicleDetails [regNumber=" + regNumber + ", make=" + make + ", colour=" + colour + "]"; 
 	}
 	
 	

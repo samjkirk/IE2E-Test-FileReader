@@ -2,7 +2,6 @@ package com.qa.ie2etest.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import org.apache.log4j.Logger;
 import org.apache.tika.Tika;
@@ -13,6 +12,8 @@ import com.qa.ie2etest.repository.FileRepositoryImpl;
 public class FILEUtil {
 	final static Logger LOGGER = Logger.getLogger(FileRepositoryImpl.class);
 	
+	private final static String SIZE = " bytes";
+	
 	private Tika tika = new Tika();
 	
 	public String getFileName(File file) {
@@ -22,7 +23,7 @@ public class FILEUtil {
 	
 	private String getFileSizeInBytes(File file) {
 		LOGGER.info("In FILEUtil getFileSize of " + file.getName());
-		return file.length() + "bytes";
+		return file.length() + SIZE;
 	}
 	
 	public String getFileExtension(File file) {
