@@ -6,18 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class FileDetails {
+public class FileInfo {
 	
 	@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String fileName;
 	private String mimeType;
-	private Long fizeSize;
+	private String fileSize;
 	private String fileExtension;
-	private VehicleDetails vehicleDetails;
+	private Vehicle vehicleDetails;
 	
-	public FileDetails() {}
+	public FileInfo() {}
 	
 	public Long getId() {
 		return id;
@@ -43,12 +43,12 @@ public class FileDetails {
 		this.mimeType = mimeType;
 	}
 	
-	public Long getFizeSize() {
-		return fizeSize;
+	public String getFileSize() {
+		return fileSize;
 	}
 	
-	public void setFizeSize(Long fizeSize) {
-		this.fizeSize = fizeSize;
+	public void setFileSize(String fizeSize) {
+		this.fileSize = fizeSize;
 	}
 	
 	public String getFileExtension() {
@@ -59,17 +59,17 @@ public class FileDetails {
 		this.fileExtension = fileExtension;
 	}
 
-	public VehicleDetails getVehicleDetails() {
+	public Vehicle getVehicleDetails() {
 		return vehicleDetails;
 	}
 
-	public void setVehicleDetails(VehicleDetails vehicleDetails) {
+	public void setVehicleDetails(Vehicle vehicleDetails) {
 		this.vehicleDetails = vehicleDetails;
 	}
 
 	@Override
 	public String toString() {
-		return "FileDetails [id=" + id + ", fileName=" + fileName + ", mimeType=" + mimeType + ", fizeSize=" + fizeSize
+		return "FileDetails [id=" + id + ", fileName=" + fileName + ", mimeType=" + mimeType + ", fizeSize=" + fileSize
 				+ ", fileExtension=" + fileExtension + "]";
 	}
 	

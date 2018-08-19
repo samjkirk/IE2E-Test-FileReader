@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class VehicleDetails {
+public class Vehicle {
 	
 	@Id @GeneratedValue (strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -15,7 +15,7 @@ public class VehicleDetails {
 	private String make;
 	private String colour;
 	
-	public VehicleDetails() {}
+	public Vehicle() {}
 	
 	public String getRegNumber() {
 		return regNumber;
