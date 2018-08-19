@@ -15,7 +15,6 @@ public class FileInfo {
 	private String mimeType;
 	private String fileSize;
 	private String fileExtension;
-	private Vehicle vehicleDetails;
 	
 	public FileInfo() {}
 	
@@ -57,14 +56,6 @@ public class FileInfo {
 	
 	public void setFileExtension(String fileExtension) {
 		this.fileExtension = fileExtension;
-	}
-
-	public Vehicle getVehicleDetails() {
-		return vehicleDetails;
-	}
-
-	public void setVehicleDetails(Vehicle vehicleDetails) {
-		this.vehicleDetails = vehicleDetails;
 	}
 
 	@Override
