@@ -7,9 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import com.qa.ie2etest.util.FILEUtil;
 import com.qa.ie2etest.domain.FileInfo;
+import com.qa.ie2etest.domain.Vehicle;
 
 public class FileRepositoryImpl implements FileRepository {
 	
@@ -19,6 +22,7 @@ public class FileRepositoryImpl implements FileRepository {
 	private List<File> getAllList;
 	private FILEUtil fileUtil = new FILEUtil();
 	FileInfo fileInfo;
+	private ArrayList<Vehicle> vehicleList;
 	
 	
 	@Override
@@ -79,6 +83,16 @@ public class FileRepositoryImpl implements FileRepository {
 	public List<File> getListOfAllFiles(){
 		LOGGER.info("In FileRepositoryImpl getListOfAllFiles");
 		return getAllList;
+	}
+
+	@Override
+	public ArrayList<Vehicle> setVehicleInfo(File file) {
+		try {
+			vehicleList = fileUtil.readFileAndSetVehicleDetails(file);
+		} catch (EncryptedDocumentException | InvalidFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		return vehicleList;
 	}
 
 }

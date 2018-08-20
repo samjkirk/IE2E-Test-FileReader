@@ -27,6 +27,8 @@ public class FILEUtil {
 	
 	private ArrayList<Vehicle> vehicles = new ArrayList<>();
 	
+	private Vehicle tempVehicle;
+	
 	private Tika tika = new Tika();
 	
 	private int vehicleCount = 0;
@@ -73,8 +75,10 @@ public class FILEUtil {
 		return fileInfo;
 	}
 	
-	public void readFileAndSetVehicleDetails(File file) throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public ArrayList<Vehicle> readFileAndSetVehicleDetails(File file) throws EncryptedDocumentException, InvalidFormatException, IOException {
 		LOGGER.info("In FILEUtil readFileAndSetVehicleDetails of" + file.getName());
+		
+		tempVehicle = new Vehicle();
 		
 		Workbook workbook = WorkbookFactory.create(new File(file.toString()));
 		
@@ -84,35 +88,33 @@ public class FILEUtil {
 		
 		Iterator<Row> rowIterator = sheet.rowIterator();
         while (rowIterator.hasNext()) {
-        	vehicles.add(new Vehicle());
-        	
             Row row = rowIterator.next();
 
             Iterator<Cell> cellIterator = row.cellIterator();
 
             while (cellIterator.hasNext()) {
-            	int cellCounter = 0;
             	
                 Cell cell = cellIterator.next();
                 String cellValue = dataFormatter.formatCellValue(cell);
-                switch (cellCounter) {
+                
+                switch (cell.getColumnIndex()) {
                 	case 0:
-                		vehicles.get(vehicleCount).setRegNumber(cellValue);
-                		cellCounter++;
+                		tempVehicle.setRegNumber(cellValue);
                 		break;
                 	case 1:
-                		vehicles.get(vehicleCount).setMake(cellValue);
-                		cellCounter++;
+                		tempVehicle.setMake(cellValue);
                 		break;
                 	case 2:
-                		vehicles.get(vehicleCount).setColour(cellValue);
-                		cellCounter = 0;
+                		tempVehicle.setColour(cellValue);
                 		break;
                 }
+                vehicles.add(vehicleCount, tempVehicle);
                 vehicleCount++;
             }
         }
         
         workbook.close();
+        
+        return vehicles;
 	}
 }

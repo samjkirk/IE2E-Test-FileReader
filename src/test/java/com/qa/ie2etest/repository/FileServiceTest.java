@@ -2,6 +2,7 @@ package com.qa.ie2etest.repository;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.qa.ie2etest.domain.FileInfo;
+import com.qa.ie2etest.domain.Vehicle;
 import com.qa.ie2etest.util.FILEUtil;
 
 public class FileServiceTest {
@@ -17,15 +19,18 @@ public class FileServiceTest {
 	private FILEUtil fileUtil;
 	private File testFile;
 	private List<File> testList;
-	private FileInfo expectedGetInfo;	
+	private FileInfo expectedGetInfo;
+	private ArrayList<Vehicle> vehicleList;
 	
 	private static final String TEST_PATH = "C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files";
 	private static final String TEST_FILE = "\\SampleCSVFile_2kb.csv";
+	private static final String VEHICLE_DETAILS_FILE = "\\test_regNumbers.xls";
 	private static final String MIME_TYPE = "text/csv";
 	private static final String EXTENSION = "xls";
-	private static final int SIZE1 = 11;
+	private static final String REG_NUMBER = "LD66ZKN";
+	private static final int SIZE1 = 12;
 	private static final int SIZE2 = 7;
-	private static final int SIZE3 = 3;
+	private static final int SIZE3 = 4;
 
 	@Before
 	public void setUp() {
@@ -62,5 +67,13 @@ public class FileServiceTest {
 	public void testGetFilesByExtension() {
 		List<File> actualResultGetFilesByExtension = fileService.getFileByExtension(EXTENSION);
 		Assert.assertEquals(SIZE3, actualResultGetFilesByExtension.size());
+	}
+	
+	@Test
+	public void testSetVehicleInfo() {
+		testFile = new File(TEST_PATH + VEHICLE_DETAILS_FILE);
+		vehicleList = fileService.setVehicleInfo(testFile);
+		
+		Assert.assertEquals(REG_NUMBER, vehicleList.get(0).getRegNumber());
 	}
 }
