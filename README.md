@@ -32,3 +32,4 @@ Write a selenium/cucumber framework to do the following:
 
 
 ## Screenshot
+![Screenshot](https://i.gyazo.com/8c799b0598235b39a05c7f8121fee53b.png)
