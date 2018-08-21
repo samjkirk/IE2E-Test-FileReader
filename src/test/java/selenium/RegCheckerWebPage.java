@@ -1,5 +1,6 @@
 package selenium;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,42 +8,52 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import Constants.Constants;
+
 public class RegCheckerWebPage {
+	final static Logger LOGGER = Logger.getLogger(RegCheckerWebPage.class);
+	
 	public static WebDriver myDriver;
 	private WebElement element;
 	
 	public void startBrowser() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\samue\\chromedriver.exe");
+		LOGGER.info("In RegCheckerWebPage startBrowser");
+		System.setProperty(Constants.DRIVER_PROPERTY, Constants.DRIVER_PATH);
 		myDriver = new ChromeDriver(); 
 	}
 	
 	public void goToRegChecker() {
-		myDriver.get("https://www.gov.uk/get-vehicle-information-from-dvla");
+		LOGGER.info("In RegCheckerWebPage goToRegChecker");
+		myDriver.get(Constants.URL);
 	}
 	
 	public void pressStartAndEnterRegNumber(String regNumber) {
+		LOGGER.info("In RegCheckerWebPage pressStartAndEnterRegNumber: " + regNumber);
 		WebDriverWait wait = new WebDriverWait(myDriver, 10);
 		
-		element = myDriver.findElement(By.xpath("//*[@id=\"get-started\"]/a"));
+		element = myDriver.findElement(By.xpath(Constants.START_BUTTON_XPATH));
 		element.click();
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Vrm")));
-		element = myDriver.findElement(By.id("Vrm"));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(Constants.ID_1)));
+		element = myDriver.findElement(By.id(Constants.ID_1));
 		element.sendKeys(regNumber);
 		
-		element = myDriver.findElement(By.className("button"));
+		element = myDriver.findElement(By.className(Constants.CLASS_NAME));
 		element.click();
 	}
 	
 	public String getCarMake() {
-		return myDriver.findElement(By.xpath("//*[@id=\"pr3\"]/div/ul/li[2]/span[2]/strong")).getText();
+		LOGGER.info("In RegCheckerWebPage getCarMake");
+		return myDriver.findElement(By.xpath(Constants.CAR_MAKE_XPATH)).getText();
 	}
 	
 	public String getCarColour() {
-		return myDriver.findElement(By.xpath("//*[@id=\"pr3\"]/div/ul/li[3]/span[2]/strong")).getText();
+		LOGGER.info("In RegCheckerWebPage getCarColour");
+		return myDriver.findElement(By.xpath(Constants.CAR_COLOUR_XPATH)).getText();
 	}
 	
 	public void shutDown() {
+		LOGGER.info("In RegCheckerWebPage shutDown");
 		myDriver.close();
 	}
 }

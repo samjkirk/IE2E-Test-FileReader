@@ -24,13 +24,9 @@ public class FILEUtil {
 	final static Logger LOGGER = Logger.getLogger(FileRepositoryImpl.class);
 	
 	private final static String SIZE = " bytes";
-	
 	private ArrayList<Vehicle> vehicles = new ArrayList<>();
-	
 	private Vehicle tempVehicle;
-	
 	private Tika tika = new Tika();
-	
 	private int vehicleCount = 0;
 	
 	public String getFileName(File file) {
