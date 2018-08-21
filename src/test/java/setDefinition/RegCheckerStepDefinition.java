@@ -14,19 +14,18 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import selenium.RegCheckerWebPage;
+import Constants.Constants;
 
 public class RegCheckerStepDefinition {
 	private FileRepositoryImpl fileService = new FileRepositoryImpl();
 	
 	private RegCheckerWebPage webPage = new RegCheckerWebPage();
 	
-	private File vehicleInfo = new File("C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files\\test_regNumbers.xls");
-	
-	private static final String TEST_PATH = "C:\\Users\\samue\\git\\IE2E-Test-FileReader\\test_files";
+	private File vehicleInfo = new File(Constants.TEST_PATH + Constants.TEST_FILE);
 	
 	@Given("^I have access to the spreadsheets that contain vehicle data$")
 	public void i_have_access_to_the_spreadsheets_that_contain_vehicle_data() throws Throwable {
-	    List<File> directory = fileService.getFilesFromDirectory(TEST_PATH);
+	    List<File> directory = fileService.getFilesFromDirectory(Constants.TEST_PATH);
 	}
 	
 	@And("^I have access to the correct web page$")
