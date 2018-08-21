@@ -21,7 +21,7 @@ public class RegCheckerStepDefinition {
 	
 	private RegCheckerWebPage webPage = new RegCheckerWebPage();
 	
-	private File vehicleInfo = new File(Constants.TEST_PATH + Constants.TEST_FILE);
+	private File vehicleInfo = new File(Constants.TEST_PATH + Constants.VEHICLE_DETAILS_FILE);
 	
 	@Given("^I have access to the spreadsheets that contain vehicle data$")
 	public void i_have_access_to_the_spreadsheets_that_contain_vehicle_data() throws Throwable {
