@@ -28,13 +28,7 @@ Write a selenium/cucumber framework to do the following:
 
 
 ## Technologies used
-> Java
-> JUnit
-> Selenium
-> Cucumber
-> Gherkin
-> Ecplise
-> Git
+> Java | JUnit | Selenium | Cucumber | Gherkin | Ecplise | Git
 
 
 ## Screenshot
