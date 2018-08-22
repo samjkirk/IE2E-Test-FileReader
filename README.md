@@ -10,7 +10,7 @@ Clone this directory
 
 Change the TEST_PATH and DRIVER_PATH constants (in src/test/java/Constants/Constants) to the location of the test_files folder in the project directory:
 
-![Screenshot](https://i.gyazo.com/f589e549c58c50aab532a515338f4555.png)
+![Screenshot](https://i.gyazo.com/cf2a1e39c10bc12f6bd7e1e689755ff2.png)
 
 Run mvn install
     
