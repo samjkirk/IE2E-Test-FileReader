@@ -5,14 +5,15 @@ IDENTITY E2E – Test 4 - Java Exercise
 > Java | JUnit | Selenium | Cucumber | Gherkin | Ecplise | Git
 
 ## How to run
-    1. Clone this directory
 
-    2. Change the TEST_PATH and DRIVER_PATH constants in Constants.Constants to the location of the testFiles folder in the project directory
+Clone this directory
+
+Change the TEST_PATH and DRIVER_PATH constants (in src/test/java/Constants/Constants) to the location of the testFiles folder in the project directory
     ![Screenshot](https://i.gyazo.com/f589e549c58c50aab532a515338f4555.png)
 
-    3. run mvn install
+Run mvn install
     
-    4. run the TestRunner_RegCheckerWebPage class as a junit test
+Run the TestRunner_RegCheckerWebPage class as a junit test
 
 ## Brief
 Part 1:
