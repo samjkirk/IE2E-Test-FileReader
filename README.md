@@ -1,6 +1,8 @@
 # IE2E-Test-FileReader
 IDENTITY E2E – Test 4 - Java Exercise
 
+## Technologies used
+> Java | JUnit | Selenium | Cucumber | Gherkin | Ecplise | Git
 
 ## Brief
 Part 1:
@@ -24,11 +26,6 @@ Write a selenium/cucumber framework to do the following:
     3. Open webpage : https://www.gov.uk/get-vehicle-information-from-dvla and go through all vehicles from excel/csv file.
 
     4. On the Vehicle details page assert the details (Make/Color) match with expected output in excel/csv file.
-
-
-
-## Technologies used
-> Java | JUnit | Selenium | Cucumber | Gherkin | Ecplise | Git
 
 
 ## Screenshot
